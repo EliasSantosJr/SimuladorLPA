@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace SimuladorLPA
+namespace SiumladorLPA
 {
     static class Program
     {
@@ -15,7 +15,8 @@ namespace SimuladorLPA
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            //Application.Run(new FrmPrincipal());
+            Application.Run(new br.SimuladorLPA.Forms.FrmPrincipal());
         }
     }
 }
