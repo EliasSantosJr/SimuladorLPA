@@ -29,34 +29,37 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("NAP", 0);
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("NAP", 1);
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("NAP", 0);
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("NAP", 1);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProjeto));
             this.listView1 = new System.Windows.Forms.ListView();
             this.imageListObjetos = new System.Windows.Forms.ImageList(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.contextMenuStripObjetos = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.conectarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deletarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
-            this.toolTipProjeto = new System.Windows.Forms.ToolTip(this.components);
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.toolTipProjeto = new System.Windows.Forms.ToolTip(this.components);
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.contextMenuStripObjetos.SuspendLayout();
             this.SuspendLayout();
             // 
             // listView1
             // 
-            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
-            listViewItem1.ToolTipText = "Saída de Grau de Evidência resultante real";
-            listViewItem2.ToolTipText = "Grau de Contradição Normalizado e Intervalo de Evidência";
+            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            listViewItem3.ToolTipText = "Saída de Grau de Evidência resultante real";
+            listViewItem4.ToolTipText = "Grau de Contradição Normalizado e Intervalo de Evidência";
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2});
+            listViewItem3,
+            listViewItem4});
             this.listView1.LargeImageList = this.imageListObjetos;
             this.listView1.Location = new System.Drawing.Point(12, 12);
             this.listView1.Name = "listView1";
@@ -79,11 +82,14 @@
             // panel1
             // 
             this.panel1.AllowDrop = true;
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.panel5);
+            this.panel1.Controls.Add(this.panel4);
+            this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.label1);
@@ -95,6 +101,23 @@
             this.panel1.DragDrop += new System.Windows.Forms.DragEventHandler(this.listView1_DragDrop);
             this.panel1.DragEnter += new System.Windows.Forms.DragEventHandler(this.listView1_DragEnter);
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel3.BackgroundImage = global::br.SimuladorLPA.Properties.Resources.NAP2;
+            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel3.ContextMenuStrip = this.contextMenuStripObjetos;
+            this.panel3.Location = new System.Drawing.Point(67, 92);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(59, 29);
+            this.panel3.TabIndex = 0;
+            this.panel3.Click += new System.EventHandler(this.conexaoObjetos);
+            this.panel3.DragDrop += new System.Windows.Forms.DragEventHandler(this.panel2_DragDrop);
+            this.panel3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.traserparafrente);
+            this.panel3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseDown);
+            this.panel3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseMove);
+            this.panel3.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseUp);
             // 
             // button1
             // 
@@ -113,7 +136,7 @@
             this.panel2.BackgroundImage = global::br.SimuladorLPA.Properties.Resources.NAP2;
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel2.ContextMenuStrip = this.contextMenuStripObjetos;
-            this.panel2.Location = new System.Drawing.Point(107, 117);
+            this.panel2.Location = new System.Drawing.Point(139, 140);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(59, 29);
             this.panel2.TabIndex = 0;
@@ -157,11 +180,6 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "label1";
             // 
-            // toolTipProjeto
-            // 
-            this.toolTipProjeto.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.toolTipProjeto.ToolTipTitle = "Simulador LPA";
-            // 
             // shapeContainer1
             // 
             this.shapeContainer1.Location = new System.Drawing.Point(0, 0);
@@ -180,6 +198,45 @@
             this.lineShape2.X2 = 376;
             this.lineShape2.Y1 = 92;
             this.lineShape2.Y2 = 145;
+            // 
+            // toolTipProjeto
+            // 
+            this.toolTipProjeto.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.toolTipProjeto.ToolTipTitle = "Simulador LPA";
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel4.BackgroundImage = global::br.SimuladorLPA.Properties.Resources.NAP2;
+            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel4.ContextMenuStrip = this.contextMenuStripObjetos;
+            this.panel4.Location = new System.Drawing.Point(271, 55);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(59, 29);
+            this.panel4.TabIndex = 0;
+            this.panel4.Click += new System.EventHandler(this.conexaoObjetos);
+            this.panel4.DragDrop += new System.Windows.Forms.DragEventHandler(this.panel2_DragDrop);
+            this.panel4.MouseClick += new System.Windows.Forms.MouseEventHandler(this.traserparafrente);
+            this.panel4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseDown);
+            this.panel4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseMove);
+            this.panel4.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseUp);
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel5.BackgroundImage = global::br.SimuladorLPA.Properties.Resources.NAP2;
+            this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel5.ContextMenuStrip = this.contextMenuStripObjetos;
+            this.panel5.Location = new System.Drawing.Point(378, 213);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(59, 29);
+            this.panel5.TabIndex = 0;
+            this.panel5.Click += new System.EventHandler(this.conexaoObjetos);
+            this.panel5.DragDrop += new System.Windows.Forms.DragEventHandler(this.panel2_DragDrop);
+            this.panel5.MouseClick += new System.Windows.Forms.MouseEventHandler(this.traserparafrente);
+            this.panel5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseDown);
+            this.panel5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseMove);
+            this.panel5.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseUp);
             // 
             // FrmProjeto
             // 
@@ -215,6 +272,9 @@
         private System.Windows.Forms.Label label1;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel4;
 
 
     }
