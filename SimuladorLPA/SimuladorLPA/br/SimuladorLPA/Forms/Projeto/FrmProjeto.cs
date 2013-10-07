@@ -162,7 +162,7 @@ namespace br.SimuladorLPA.Forms
 
         private void conexaoObjetos(object sender, EventArgs e)
         {
-            int a = 0;
+
         }
 
         private void traserparafrente(object sender, MouseEventArgs e)
